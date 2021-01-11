@@ -81,6 +81,8 @@ public class Hw17Application {
 		System.out.println("12 institutes are in ... " + universityService.findByInstitutesNumber(12));
 
 
+
+
 		//read all
 		System.out.println("-----------------------------------------------------------------");
 		System.out.println("Output of all DB:");
@@ -88,8 +90,13 @@ public class Hw17Application {
 
 		//delete from DB
 		System.out.println("-------------------------------------------------------------");
-		universityService.deleteById((long)5);
+		universityService.deleteById((long)4);
 		System.out.println("record 5 was deleted");
+
+		// update from DB
+		University forUpdate = universityService.findById((long) 5);
+		forUpdate.setStudentsNumber(2520);
+		universityService.update(forUpdate);
 
 		System.out.println("-----------------------------------------------------------------");
 		System.out.println("Output of all DB:");
